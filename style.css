@@ -54,6 +54,7 @@ button{
 #start{
     height:7vh;
     background-color: blanchedalmond;
+    width: fit-content;
     max-width: fit-content;
 }
 #div{
