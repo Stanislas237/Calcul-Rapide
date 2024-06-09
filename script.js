@@ -46,8 +46,7 @@ function random(tab) {
     }
     return tab
 }
-function Submit(i){
-    let r = document.getElementById(`r${i}`)
+function Submit(r){
     if (x === +r.innerHTML){
         time.innerHTML = (time_value = (time_value<245) ? time_value+11 : 255) + ' secondes restantes'
         score.innerHTML = ++score_value
@@ -76,5 +75,5 @@ let décompte, time_value, score_value
 startbutton.addEventListener("click", start)
 document.querySelectorAll("button").forEach(elt => elt.addEventListener("click", (e) => {
     e.preventDefault
-    Submit(parseInt(elt.id.split("")[1]))
+    Submit(elt)
 }))
