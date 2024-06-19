@@ -27,8 +27,8 @@ function Update() {
     for (i of [0, 1, 2, 3, 4]) document.getElementById(`a${i}`).value = table[i]
     let div = document.querySelectorAll("button")
     div.forEach(elt => {
-        elt.disabled = false;
-        elt.style.background = "white";
+        elt.disabled = false
+        elt.classList.remove('false')
     })
     let t = random([0, 1, 2, 3])
     x = eval(table.join(''))
@@ -53,7 +53,7 @@ function Submit(r){
         Update()
     }else {
         score.innerHTML = --score_value
-        r.style.background = "rgb(204, 94, 94)"
+        r.classList.add('false')
         r.disabled = true
     }
 }
@@ -77,3 +77,16 @@ document.querySelectorAll("button").forEach(elt => elt.addEventListener("click",
     e.preventDefault
     Submit(elt)
 }))
+
+
+//************************************** THEMES ****************************************************
+if(!localStorage.hasOwnProperty("theme_calcul_rapide")) localStorage.setItem("theme_calcul_rapide", "light")
+let theme = ["dark", "light"]
+document.body.id = localStorage.getItem("theme_calcul_rapide")
+document.querySelector("img").id = document.body.id.charAt(0)
+document.querySelector("img").addEventListener("click", (e)=>{
+    e.preventDefault()
+    document.body.id == theme[0] ? document.body.id = theme[1] : document.body.id = theme[0]
+    localStorage.setItem("theme_calcul_rapide", document.body.id)
+    e.target.id = document.body.id.charAt(0)
+})

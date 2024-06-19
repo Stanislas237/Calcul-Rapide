@@ -1,16 +1,79 @@
+:root{
+    --light: rgb(255, 255, 255);
+    --dark: rgb(0, 0, 0);
+    --pink-light: rgb(243, 112, 155);
+    --pink-dark: rgb(131, 62, 85);
+    --blue-light: blue;
+    --blue-dark: rgb(123, 123, 249);
+    --red-light: red;
+    --red-dark: brown;
+    --orange-light: orange;
+    --orange-dark: rgb(182, 112, 27);
+    --yellowsoft-light: blanchedalmond;
+    --yellowsoft-dark: rgb(248, 199, 127);
+    --white-light: whitesmoke;
+    --white-dark: rgba(26, 33, 35, 0.5);
+    --grey-light: rgb(94, 93, 93);
+    --grey-dark: rgb(151, 136, 141);
+}
+#light{
+    --bg-color: var(--light);
+    --color: var(--dark);
+    --pink: var(--pink-light);
+    --blue: var(--blue-light);
+    --white: var(--white-light);
+    --red: var(--red-light);
+    --orange: var(--orange-light);
+    --yellowsoft: var(--yellowsoft-light);
+    --grey: var(--grey-light);
+    --bg-grey: var(--grey-dark);
+    --bg-color-2: linear-gradient(45deg, var(--bg-grey), var(--bg-color)) no-repeat;
+
+}
+#dark{
+    --bg-color: var(--dark);
+    --color: var(--light);
+    --pink: var(--pink-dark);
+    --blue: var(--blue-dark);
+    --white: var(--white-dark);
+    --red: var(--red-dark);
+    --orange: var(--orange-dark);
+    --yellowsoft: var(--yellowsoft-dark);
+    --grey: var(--grey-dark);
+    --bg-grey: var(--grey-light);
+    --bg-color-2: linear-gradient(45deg, var(--bg-grey), var(--bg-color)) no-repeat;
+}
+*{
+    transition: ease-in-out color 10ms, background-color .2s, border-color .2s;
+}
+
 body{
     font-weight :bold;
     font-style:Italic; 
     font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background: linear-gradient(45deg, rgb(243, 112, 155), rgb(255, 255, 255)) no-repeat;
+    background: linear-gradient(45deg, var(--pink), var(--bg-color)) no-repeat;
+    color: var(--color);
+}
+img{
+    height: 40px;
+    width: 25%;
+    max-width: 100px;
+    cursor: pointer;
+    transition: all ease-in-out .2s;
+    background: url(assets/light.png) center no-repeat;
+    background-size: 100% 80%;
+}
+#d{
+    background: url(assets/dark.png) center no-repeat;
+    background-size: 100% 80%;
 }
 h1{
     text-align: center;
-    color: blue; 
+    color: var(--blue);
 }
 h3{
     text-align: end;
-    color:orange; 
+    color: var(--orange);
     font-style:Italic;
 }
 h4{
@@ -18,7 +81,7 @@ h4{
     margin-bottom: 5em;
 }
 #temps{
-    color: blue;
+    color: var(--blue);
 }
 fieldset, #buttons{
     display: flex;
@@ -26,19 +89,18 @@ fieldset, #buttons{
 }
 legend{
     font-weight: bolder;
-    color:red;
+    color: var(--red);
 }
 input, button{
+    border: 1px solid var(--color);
     font-weight :bold;
     font-style:Italic;
     font-size: .8em;
-    border: 1px solid black;
     border-radius: 20px;
     text-align: center;
     width:14%;
     max-width: 70px;
     height:5vh;
-    background: white;
 }
 p{
     color: green;
@@ -47,13 +109,19 @@ p{
     font-size:2.5em;
     text-align: center;
 }
+input{
+    color: var(--color);
+    background-color: var(--white);
+}
 button{
-    color: black;
+    color: var(--white);
+    background-color: var(--color);
     height:7vh
 }
 #start{
     height:7vh;
-    background-color: blanchedalmond;
+    color: black !important;
+    background-color: var(--yellowsoft);
     width: fit-content;
     max-width: fit-content;
 }
@@ -65,9 +133,13 @@ button{
     gap: 10px;
 }
 button:disabled{
-    background: linear-gradient(45deg, rgb(151, 136, 141), rgb(255, 255, 255)) no-repeat;
-    color:rgb(94, 93, 93);
+    background: var(--bg-color-2);
+    color:var(--grey);
 }
 button:enabled, input:enabled{
     cursor: pointer;
+}
+.false{
+    --bg-color-2 : rgb(204, 94, 94);
+    --grey: var(--white)
 }
